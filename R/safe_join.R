@@ -1,3 +1,22 @@
+#' Safely Join Two Data Frame
+#' Performs a left join with safety checks for:
+#' duplicate keys, missing join columns, and unmatched rows
+#'
+#'
+#' @param df1 First data frame
+#' @param df2 Second data frame
+#' @param by Column name used for joining (string)
+#'
+#' @returns A safely joined data frame
+#'
+#' @examples
+#' df1 <- data.frame(id = c(1, 2, 3), name = c("A", "B", "C"))
+#' df2 <- data.frame(id = c(1, 2, 4), score = c(90, 85, 70))
+#'
+#' safe_join(df1, df2, by = "id")
+#'
+#' @export
+
 safe_join <- function(df1, df2, by) {
   checkmate::assert_data_frame(df1)
   checkmate::assert_data_frame(df2)

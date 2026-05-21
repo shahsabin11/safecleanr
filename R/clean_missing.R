@@ -1,3 +1,21 @@
+#' Clean Missing Values in a Data Frame
+#' Handles missing values in a selected column using different strategies:
+#' removal, mean, median, or mode imputation
+#'
+#' @param data A data frame
+#' @param column Name of the column to clean(string)
+#' @param method Method for handling missing values:
+#' "remove", "mean", "median", or "mode"
+#'
+#' @returns A cleaned data frame with missing values handled
+#'
+#' @examples
+#' df <- data.frame(age = c(20, NA, 30, 40))
+#' clean_missing(df, "age", method = "mean")
+#' @importFrom stats median na.omit
+#' @export
+#'
+#'
 clean_missing <- function(data, column, method = "mean") {
   checkmate::assert_data_frame(data)
 
