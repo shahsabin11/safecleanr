@@ -1,0 +1,115 @@
+# safecleanr
+
+`safecleanr` is an R package that provides simple and safe tools for
+cleaning and summarizing data.
+
+The package focuses on beginner-friendly workflows for: - handling
+missing values, - safely joining datasets, - generating quick summary
+statistics.
+
+## Installation
+
+You can install the development version from GitHub:
+
+``` r
+
+devtools::install_github("yourusername/safecleanr")
+```
+
+## Functions
+
+### clean_missing()
+
+Handles missing values using: - mean replacement, - median
+replacement, - mode replacement, - or row removal.
+
+Example:
+
+``` r
+
+library(safecleanr)
+
+df <- data.frame(
+  age = c(20, NA, 25, 30)
+)
+
+clean_missing(df, "age", method = "mean")
+```
+
+------------------------------------------------------------------------
+
+### safe_join()
+
+Safely joins two data frames while checking for: - duplicate keys, -
+missing join columns, - unmatched rows.
+
+Example:
+
+``` r
+
+df1 <- data.frame(
+  id = c(1, 2, 3),
+  name = c("Alice", "Bob", "Charlie")
+)
+
+df2 <- data.frame(
+  id = c(1, 2),
+  score = c(90, 85)
+)
+
+safe_join(df1, df2, by = "id")
+```
+
+------------------------------------------------------------------------
+
+### quick_summary()
+
+Generates summary statistics for numeric columns.
+
+Example:
+
+``` r
+
+quick_summary(student_data)
+```
+
+## Included Dataset
+
+The package includes a sample dataset called `student_data`.
+
+``` r
+
+student_data
+```
+
+The dataset contains: - student IDs, - majors, - study hours, -
+attendance, - final grades.
+
+## Example Workflow
+
+``` r
+
+library(safecleanr)
+
+# View dataset
+student_data
+
+# Clean missing values
+cleaned_data <- clean_missing(
+  student_data,
+  "study_hours",
+  method = "mean"
+)
+
+# Generate summary statistics
+quick_summary(cleaned_data)
+```
+
+## Motivation
+
+This package was created to provide safer and simpler data-cleaning
+tools for beginner R users.
+
+Many common data-cleaning tasks can silently introduce mistakes or
+confusion. The functions in this package help users identify problems
+earlier and work with data more confidently.
