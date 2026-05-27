@@ -11,3 +11,6 @@ RoxygenNote: 8.0.0
 Imports:
     checkmate,
     dplyr
+Depends: 
+    R (>= 3.5)
+LazyData: true
