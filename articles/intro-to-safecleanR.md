@@ -1,6 +1,7 @@
 # Introduction to SafeCleanR
 
 ``` r
+
 library(safecleanr)
 ```
 
@@ -12,6 +13,7 @@ values, - joining datasets, - creating summary statistics.
 ## Example Dataset
 
 ``` r
+
 student_data
 #>   student_id    name            major study_hours attendance final_grade
 #> 1        101   Alice Computer Science          15         90          88
@@ -29,6 +31,7 @@ student_data
 Replace missing values with the mean:
 
 ``` r
+
 clean_missing(student_data, "study_hours", method = "mean")
 #>   student_id    name            major study_hours attendance final_grade
 #> 1        101   Alice Computer Science    15.00000         90          88
@@ -44,6 +47,7 @@ clean_missing(student_data, "study_hours", method = "mean")
 Remove rows with missing values:
 
 ``` r
+
 clean_missing(student_data, "final_grade", method = "remove")
 #>   student_id    name            major study_hours attendance final_grade
 #> 1        101   Alice Computer Science          15         90          88
@@ -60,6 +64,7 @@ clean_missing(student_data, "final_grade", method = "remove")
 Create another dataset:
 
 ``` r
+
 advisor_data <- data.frame(
   student_id = c(101, 102, 103, 104),
   advisor = c(
@@ -74,6 +79,7 @@ advisor_data <- data.frame(
 Join the datasets:
 
 ``` r
+
 safe_join(student_data, advisor_data, by = "student_id")
 #> Warning in safe_join(student_data, advisor_data, by = "student_id"): 4 row(s)
 #> in df1 have no match in df2
@@ -102,6 +108,7 @@ safe_join(student_data, advisor_data, by = "student_id")
 Generate summary statistics:
 
 ``` r
+
 quick_summary(student_data)
 #>                  Column      Mean Median       SD Min Max Missing_Values
 #> student_id   student_id 104.50000  104.5 2.449490 101 108              0

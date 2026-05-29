@@ -12,6 +12,7 @@ statistics.
 You can install the development version from GitHub:
 
 ``` r
+
 devtools::install_github("yourusername/safecleanr")
 ```
 
@@ -25,6 +26,7 @@ replacement, - mode replacement, - or row removal.
 Example:
 
 ``` r
+
 library(safecleanr)
 
 df <- data.frame(
@@ -44,6 +46,7 @@ missing join columns, - unmatched rows.
 Example:
 
 ``` r
+
 df1 <- data.frame(
   id = c(1, 2, 3),
   name = c("Alice", "Bob", "Charlie")
@@ -66,6 +69,7 @@ Generates summary statistics for numeric columns.
 Example:
 
 ``` r
+
 quick_summary(student_data)
 ```
 
@@ -74,6 +78,7 @@ quick_summary(student_data)
 The package includes a sample dataset called `student_data`.
 
 ``` r
+
 student_data
 ```
 
@@ -83,6 +88,7 @@ attendance, - final grades.
 ## Example Workflow
 
 ``` r
+
 library(safecleanr)
 
 # View dataset
